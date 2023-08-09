@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.actions.act_window" id="student_feedback_action">
+        <field name="name">Student Feedbacks</field>
+        <field name="res_model">student.feedback</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Feedback" id="feedback_menu"
+              action="student_feedback_action"
+              sequence="6"/>
+    
+    <menuitem name="Student Feedbacks" id="feedback_student_menu"
+              action="student_feedback_action"
+              parent="feedback_menu"
+              sequence="6"/>
+
+    <record id="student_feedback_tree_view" model="ir.ui.view">
+        <field name="name">student.feedback.tree</field>
+        <field name="model">student.feedback</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_name"/>
+                <field name="purpose"/>
+                <field name="counsellor"/>
+                <field name="rating" widget="priority" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="student_feedback_form_view" model="ir.ui.view">
+        <field name="name">Student Feedback</field>
+        <field name="model">student.feedback</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Student Feedback" edit="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_name"/>
+                            <field name="purpose"/>
+                            <field name="counsellor"/>
+                            <field name="rating" widget="priority" readonly="1"/>
+                            <field name="message"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>
