@@ -3,6 +3,12 @@ from odoo import models, api, fields
 class StudentFeedback(models.Model):
     _name = "student.feedback"
     _description = "Student Feedback"
+    def _compute_name(self):
+            for record in self:
+                zeroes = "0"*(5 - len(str(record.id)))
+                record.name = "FD"+zeroes+str(record.id)
+    name = fields.Char(string="Name",compute="_compute_name")
+
     student_name = fields.Char('Student Name')
     mobile = fields.Char('Mobile')
     counsellor = fields.Char('Student Counsellor')
