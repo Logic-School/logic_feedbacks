@@ -1,5 +1,6 @@
 {
-    'name': "Feedback",
+    'name': "Feedbacks",
+    'author': 'Rizwaan',
     'version': "14.0.1.0",
     'sequence': "0",
     'depends': ['base','hr'],
