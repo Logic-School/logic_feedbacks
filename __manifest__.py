@@ -2,7 +2,7 @@
     'name': "Feedback",
     'version': "14.0.1.0",
     'sequence': "0",
-    'depends': ['base'],
+    'depends': ['base','hr'],
     'data': [
         'security/ir.model.access.csv',
         'views/student_feedback_views.xml',
