@@ -51,5 +51,17 @@
         </field>
     </record>
 
-
+    <record id="student_feedback_search" model="ir.ui.view">
+        <field name="name">student.feedback.search</field>
+        <field name="model">student.feedback</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter string="Positive" name="active" domain="[('rating', '>=',3)]"/>
+                <filter string="Negative" name="active" domain="[('rating', '&lt;', 3)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Student Counsellor" name="counsellor" context="{'group_by': 'counsellor'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
 </odoo>
